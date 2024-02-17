@@ -1,7 +1,7 @@
 import {db} from '../db/conn.js'
 
 const getMage = async (req,res)=>{
-    const sql = `select * from tbl_hechizeros`; //!!!!!!!!!!!!!!!!
+    const sql = `select * from tbl_mages`; 
     const result = await db.query(sql);
 
     res.json(result)
@@ -23,12 +23,13 @@ const putMage = async (req,res) =>{
 
     const {first_name, second_name, mage_age} = req.body
     const {id} = req.params
-    const params = [first_name, second_name, mage_age, id]
+    const params = [first_name, second_name, mage_age, n, id]
     const sql = `update tbl_mages
                 set 
                 first_name = $1,
                 second_name = $2,
-                mage_age = $3
+                mage_age = $3,
+                
                 where id =$4 returning *`
 
     const result = await db.query(sql, params)

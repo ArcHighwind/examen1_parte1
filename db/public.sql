@@ -5,13 +5,12 @@ create table tbl_mages
     first_name varchar(500),
     second_name varchar(500),
     mage_age INT,
-    name_school VARCHAR(500) REFERENCES tbl_schools(school_name),
-    spell_name VARCHAR(200) REFERENCES tbl_spells(spell_name),
-    weapon VARCHAR(200) REFERENCES tbl_weapon(weapon_name),
-    equipment VARCHAR(200) REFERENCES tbl_equipment(equipment_name)
-    
-
+    id_school INT REFERENCES tbl_schools(id),
+    id_spell INT REFERENCES tbl_spells(id),
+    id_weapon INT REFERENCES tbl_weapon(id),
+    id_equipment INT REFERENCES tbl_equipment(id)
 );
+
 
 create table tbl_schools
 (
@@ -36,7 +35,7 @@ create table tbl_equipment
     equipment_effect VARCHAR(500)
 );
 
-create table tbl_weapon
+create table tbl_weapons
 (
     id serial primary key,
     weapon_name VARCHAR(200),
