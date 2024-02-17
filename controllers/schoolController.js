@@ -22,7 +22,7 @@ const postSchool = async (req, res) => {
 const putSchool = async(req,res)=>{
     const {school_name} =req.body;
     const {id} = req.params;
-    const params = {school_name, id};
+    const params = [school_name, id];
     const sql = `update tbl_schools
                 set school_name = $1
                 where id = $2

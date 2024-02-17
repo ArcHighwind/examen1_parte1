@@ -1,7 +1,7 @@
 import {db} from '../db/conn.js'
 
 const getMage = async (req,res)=>{
-    const sql = `selelct * from tbl_hechizeros`;
+    const sql = `select * from tbl_hechizeros`; //!!!!!!!!!!!!!!!!
     const result = await db.query(sql);
 
     res.json(result)
@@ -19,7 +19,7 @@ const postMage = async (req,res)=>{
     res.json(result);
 }
 
-const putMage = async (res,req) =>{
+const putMage = async (req,res) =>{
 
     const {first_name, second_name, mage_age} = req.body
     const {id} = req.params
@@ -36,7 +36,7 @@ const putMage = async (res,req) =>{
 
 }
 
-const deleteMage = async (res,req) =>{
+const deleteMage = async (req,res) =>{
 
     const params = [req.params.id];
     const sql = `delete from tbl_mages
