@@ -42,3 +42,14 @@ create table tbl_weapons
     weapon_effect VARCHAR(500)
     
 );
+
+SELECT * FROM tbl_mages
+INNER JOIN tbl_schools
+ON tbl_mages.id_school = tbl_schools.id
+INNER JOIN tbl_spells
+ON tbl_mages.id_spell = tbl_spells.id
+INNER JOIN tbl_equipment
+ON tbl_mages.id_equipment = tbl_equipment.id
+INNER JOIN tbl_weapons
+ON tbl_mages.id_weapon = tbl_weapons.id;
+/*No se como hacer inner joins bien */
